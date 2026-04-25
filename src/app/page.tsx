@@ -123,24 +123,33 @@ export default function Home() {
   return (
     <>
       {/* 1. HERO */}
-      <section className="relative h-screen min-h-[680px] w-full overflow-hidden bg-noir">
+      <section className="relative h-screen min-h-[100svh] md:min-h-[680px] w-full overflow-hidden bg-noir">
         <Image
           src="/images/04-portrait-olivier-HD.jpg"
           alt="Olivier Lafourcade, menuisier-agenceur, devant son atelier à Larmor-Plage"
           fill
           priority
           sizes="100vw"
-          className="object-cover object-right"
+          className="object-cover object-[35%_center] md:object-[right_center]"
         />
+        {/* Mobile : dégradé bas → haut pour lisibilité du texte placé en bas */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 md:hidden"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(15,14,12,0.95) 0%, rgba(15,14,12,0.4) 60%, rgba(15,14,12,0) 100%)",
+          }}
+        />
+        {/* Desktop : dégradé gauche → droite (cadrage Olivier + fourgon) */}
+        <div
+          className="absolute inset-0 hidden md:block"
           style={{
             background:
               "linear-gradient(to right, rgba(15,14,12,0.95) 0%, rgba(15,14,12,0.6) 50%, rgba(15,14,12,0.2) 100%)",
           }}
         />
 
-        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col justify-center">
+        <div className="relative z-10 h-full max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col justify-end pb-16 md:justify-center md:pb-0">
           <div className="max-w-[640px] lg:max-w-[52%]">
             <p className="font-sans font-medium text-xs uppercase tracking-[0.3em] text-or mb-6 reveal">
               Menuiserie · Agencement · Rénovation
