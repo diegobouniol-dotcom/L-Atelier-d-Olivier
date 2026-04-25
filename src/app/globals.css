@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --noir: #0F0E0C;
+  --noir-warm: #1C1916;
+  --noir-deep: #0A0908;
+  --or: #C9A86A;
+  --or-clair: #E0C896;
+  --creme: #F5EFE4;
+  --creme-dark: #E8DECB;
+  --bois: #6B4A2B;
+  --blanc: #FFFFFF;
+
+  --background: var(--creme);
+  --foreground: var(--noir);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-noir: var(--noir);
+  --color-noir-warm: var(--noir-warm);
+  --color-noir-deep: var(--noir-deep);
+  --color-or: var(--or);
+  --color-or-clair: var(--or-clair);
+  --color-creme: var(--creme);
+  --color-creme-dark: var(--creme-dark);
+  --color-bois: var(--bois);
+
+  --font-display: var(--font-cormorant), Georgia, serif;
+  --font-script: var(--font-italianno), "Dancing Script", cursive;
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+
+  --tracking-widest-plus: 0.3em;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  font-weight: 400;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.font-script {
+  font-family: var(--font-italianno), "Dancing Script", cursive;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+.font-sans {
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Underline animation for gold links */
+.link-or {
+  position: relative;
+  display: inline-block;
+  color: var(--or);
+}
+.link-or::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.link-or:hover::after {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* Fine gold divider */
+.divider-or {
+  width: 60px;
+  height: 1px;
+  background: var(--or);
+}
+
+/* Section fade-in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  animation: fadeUp 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Selection */
+::selection {
+  background: var(--or);
+  color: var(--noir);
+}
+
+/* Scrollbar (subtle) */
+@media (hover: hover) {
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: var(--noir); }
+  ::-webkit-scrollbar-thumb { background: var(--or); border: 2px solid var(--noir); }
+}
