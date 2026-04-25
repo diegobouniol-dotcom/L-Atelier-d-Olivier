@@ -11,26 +11,22 @@ const projets: Projet[] = [
   {
     src: "/images/01-renovation-restaurant-HD.jpg",
     titre: "Rénovation restaurant — Lorient",
-    desc: "Rénovation complète : banquettes velours, parquet bois massif, lambris chêne, suspensions design. De la démolition à la livraison, un seul interlocuteur.",
-    aspect: "aspect-[3/5]",
+    desc: "Rénovation complète : banquettes velours, parquet bois massif, lambris chêne, suspensions design.",
   },
   {
     src: "/images/02-bureaux-verriere-HD.jpg",
     titre: "Aménagement bureaux — verrière atelier",
-    desc: "Création d'un espace détente avec verrière sur-mesure style atelier, mur d'accent papier peint tropical, parquet flottant.",
-    aspect: "aspect-[4/3]",
+    desc: "Verrière atelier sur-mesure, mur d'accent papier peint tropical, parquet flottant.",
   },
   {
     src: "/images/03-renovation-sdb-HD.jpg",
     titre: "Rénovation salle de bain",
-    desc: "Démolition complète, plan-vasque sur-mesure en teck, parquet hydrofuge, douche à l'italienne. Finitions haut de gamme.",
-    aspect: "aspect-[3/5]",
+    desc: "Plan-vasque teck sur-mesure, parquet hydrofuge, douche à l'italienne. Finitions haut de gamme.",
   },
   {
     src: "/images/04-portrait-olivier-HD.jpg",
     titre: "À l'atelier",
     desc: "Olivier sur le terrain, devant son atelier à Larmor-Plage. Plus de vingt ans de menuiserie et d'agencement.",
-    aspect: "aspect-[4/5]",
   },
 ];
 

@@ -28,21 +28,21 @@ const metiers = [
 const projets = [
   {
     src: "/images/01-renovation-restaurant-HD.jpg",
-    titre: "Rénovation complète d'un restaurant — Lorient",
-    desc: "Banquettes velours, parquet bois massif, lambris chêne, suspensions design.",
-    badge: "AVANT / APRÈS",
-  },
-  {
-    src: "/images/03-renovation-sdb-HD.jpg",
-    titre: "Rénovation salle de bain",
-    desc: "Démolition complète, plan-vasque sur-mesure en teck, parquet hydrofuge, douche à l'italienne.",
+    titre: "Rénovation restaurant — Lorient",
+    desc: "Banquettes velours, parquet bois massif, lambris chêne",
     badge: "AVANT / APRÈS",
   },
   {
     src: "/images/02-bureaux-verriere-HD.jpg",
-    titre: "Aménagement de bureaux — verrière atelier",
-    desc: "Création d'un espace détente avec verrière sur-mesure style atelier, mur d'accent papier peint tropical, parquet flottant.",
-    badge: null,
+    titre: "Aménagement bureaux",
+    desc: "Verrière atelier sur-mesure, papier peint d'accent, parquet flottant",
+    badge: "RÉALISATION",
+  },
+  {
+    src: "/images/03-renovation-sdb-HD.jpg",
+    titre: "Rénovation salle de bain",
+    desc: "Plan-vasque teck, douche italienne, parquet hydrofuge",
+    badge: "AVANT / APRÈS",
   },
 ];
 
@@ -269,29 +269,35 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <div className="space-y-16 lg:space-y-24">
+          <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {projets.map((p, i) => (
               <Reveal key={p.src} delay={i * 0.1}>
-                <article className="group">
-                  <div className="relative aspect-[4/5] md:aspect-[16/10] w-full overflow-hidden bg-noir-warm">
+                <article className="group w-full max-w-[380px] mx-auto border border-or/20 rounded-[2px] overflow-hidden bg-noir-warm/40">
+                  <div className="relative aspect-[3/4] w-full overflow-hidden">
                     <Image
                       src={p.src}
                       alt={p.titre}
                       fill
-                      sizes="(max-width: 1024px) 100vw, 1200px"
-                      className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.02]"
+                      quality={90}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover object-center transition-transform duration-[400ms] ease-out group-hover:scale-105"
                     />
-                    {p.badge && (
-                      <div className="absolute top-6 left-6 bg-noir/90 backdrop-blur-sm text-or font-sans text-[11px] font-semibold uppercase tracking-[0.3em] px-4 py-2 border border-or/30">
-                        {p.badge}
-                      </div>
-                    )}
+                    <div className="absolute top-4 left-4 bg-noir text-or font-sans text-[11px] font-semibold uppercase tracking-[0.2em] px-[14px] py-2">
+                      {p.badge}
+                    </div>
                   </div>
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mt-8">
-                    <h3 className="md:col-span-6 font-display italic text-[28px] lg:text-[36px] font-semibold text-white leading-tight">
+                  <div className="p-6">
+                    <h3 className="font-display italic text-[22px] text-white leading-tight mb-2">
                       {p.titre}
                     </h3>
-                    <p className="md:col-span-6 font-sans text-[16px] text-creme/70 leading-relaxed">
+                    <p
+                      className="font-sans text-[13px] text-white/70 leading-relaxed overflow-hidden"
+                      style={{
+                        display: "-webkit-box",
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: "vertical",
+                      }}
+                    >
                       {p.desc}
                     </p>
                   </div>

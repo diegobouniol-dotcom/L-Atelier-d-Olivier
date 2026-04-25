@@ -8,7 +8,6 @@ export type Projet = {
   src: string;
   titre: string;
   desc: string;
-  aspect?: string;
 };
 
 export default function Gallery({ projets }: { projets: Projet[] }) {
@@ -45,27 +44,38 @@ export default function Gallery({ projets }: { projets: Projet[] }) {
 
   return (
     <>
-      <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {projets.map((p, i) => (
           <button
             key={p.src}
             onClick={() => setActive(i)}
-            className={`group relative block w-full mb-6 break-inside-avoid overflow-hidden bg-noir-warm ${
-              p.aspect || "aspect-[4/5]"
-            } focus:outline-none focus:ring-2 focus:ring-or`}
+            className="group block w-full max-w-[380px] mx-auto border border-or/20 rounded-[2px] overflow-hidden bg-creme text-left focus:outline-none focus:ring-2 focus:ring-or"
             aria-label={`Voir ${p.titre} en grand`}
           >
-            <Image
-              src={p.src}
-              alt={p.titre}
-              fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-[1000ms] ease-out group-hover:scale-[1.04]"
-            />
-            <div className="absolute inset-0 bg-or/0 group-hover:bg-or/10 transition-colors duration-500" />
-            <div className="absolute inset-x-0 bottom-0 p-6 translate-y-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 bg-gradient-to-t from-noir/90 via-noir/50 to-transparent">
-              <p className="font-display italic text-white text-xl leading-tight">
+            <div className="relative aspect-[3/4] w-full overflow-hidden">
+              <Image
+                src={p.src}
+                alt={p.titre}
+                fill
+                quality={90}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover object-center transition-transform duration-[400ms] ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-or/0 group-hover:bg-or/10 transition-colors duration-300" />
+            </div>
+            <div className="p-6">
+              <h3 className="font-display italic text-[22px] text-noir leading-tight mb-2">
                 {p.titre}
+              </h3>
+              <p
+                className="font-sans text-[13px] text-noir/70 leading-relaxed overflow-hidden"
+                style={{
+                  display: "-webkit-box",
+                  WebkitLineClamp: 2,
+                  WebkitBoxOrient: "vertical",
+                }}
+              >
+                {p.desc}
               </p>
             </div>
           </button>
